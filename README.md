@@ -43,4 +43,4 @@ npm install
 npm run dev
 \`\`\`
 
-Open your browser and navigate to ``.
+Open your browser and navigate to `https://stride-bfg1.onrender.com`.
