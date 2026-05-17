@@ -1,74 +1,46 @@
-# Stride (MERN Project Management)
+# Stride 
 
-Modern team project management app built with **MongoDB + Express + React + Node** and **Tailwind CSS**.
+**Stride** is a modern, full-stack MERN project management platform designed for teams. It features interactive Kanban boards, role-based access control, and actionable analytics to keep workflows organized and efficient.
 
-## Tech
-- **Backend**: Express, Mongoose, JWT auth
-- **Frontend**: React (Vite), React Router, Axios, Tailwind
+## Features
 
-## Environment Variables
+- **Interactive Kanban Board:** Drag-and-drop task management with real-time status transitions and optimistic UI updates.
+- **Role-Based Access Control:** Granular permissions (Owner, Admin, Member) managed at the project level.
+- **Team Management:** Secure email-based member invitations and role promotion/demotion.
+- **Project Analytics:** Track team performance with completion rates, status breakdowns, and a 14-day activity trend chart.
+- **Multi-View Workflow:** Seamlessly switch between List View, Board View, and Analytics.
 
-### Backend (`server/.env`)
-Copy `server/.env.example` → `server/.env` and set:
-- **`MONGODB_URI`**: Mongo connection string
-- **`JWT_SECRET`**: long random string (keep secret)
-- **`JWT_EXPIRES_IN`**: e.g. `7d`
-- **`PORT`**: default `5000`
-- **`CLIENT_URL`** (dev / separate-frontend deployments): e.g. `http://localhost:5173`
+## Tech Stack
 
-### Frontend (`client/.env`)
-Copy `client/.env.example` → `client/.env` and set:
-- **`VITE_API_URL`**
-  - Dev: `http://localhost:5000/api`
-  - Single-service prod (Express serves React): `/api`
+- **Frontend:** React (Vite), Tailwind CSS, React Router, Axios
+- **Backend:** Node.js, Express.js
+- **Database:** MongoDB (Mongoose)
+- **Authentication:** JWT (JSON Web Tokens)
 
-## Local Development (2 terminals)
+## Getting Started
 
-### Terminal 1 (API)
-```bash
+To run this project locally, you will need two terminals.
+
+**1. Clone the repository**
+\`\`\`bash
+git clone https://github.com/0001-m/Stride.git
+cd Stride
+\`\`\`
+
+**2. Setup Backend**
+\`\`\`bash
 cd server
 npm install
+# Rename .env.example to .env and add your MongoDB URI and JWT Secret
 npm run dev
-```
+\`\`\`
 
-### Terminal 2 (Web)
-```bash
+**3. Setup Frontend**
+\`\`\`bash
 cd client
 npm install
+# Rename .env.example to .env and set VITE_API_URL=http://localhost:5000/api
 npm run dev
-```
+\`\`\`
 
-Frontend: `http://localhost:5173`  
-API health check: `http://localhost:5000/api/health`
-
-## Production Build (single-service deploy)
-
-This repo supports deploying as **one Node service**:
-1) Build the React app
-2) Start the Express server
-3) Express serves `client/dist` and your API under `/api`
-
-### Steps
-```bash
-cd client
-npm install
-npm run build
-
-cd ../server
-npm install
-NODE_ENV=production npm start
-```
-
-Then open: `http://localhost:5000`
-
-## Deployment Checklist
-- **Secrets**: never commit `.env` files
-- **JWT**: set a strong `JWT_SECRET`
-- **MongoDB**: use a hosted MongoDB (Atlas) connection string for production
-- **CORS**:
-  - Single-service deployment: no CORS needed (same origin)
-  - Separate frontend: set `CLIENT_URL` to your frontend’s deployed URL
-- **Client API URL**:
-  - Single-service: set `VITE_API_URL=/api` before building
-  - Separate services: set `VITE_API_URL=https://your-api-domain/api`
-
+Open your browser and navigate to ``.
