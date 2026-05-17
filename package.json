@@ -1,0 +1,13 @@
+{
+  "name": "stride",
+  "private": true,
+  "type": "module",
+  "scripts": {
+    "dev:server": "npm --prefix server run dev",
+    "dev:client": "npm --prefix client run dev",
+    "dev": "echo \"Run in two terminals: npm run dev:server and npm run dev:client\"",
+    "build:client": "npm --prefix client run build",
+    "start": "npm --prefix server start"
+  }
+}
+
